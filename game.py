@@ -16,11 +16,15 @@ class Game:
         if word == '':
             return False
         for letter in word:
-            if letter in temporary_grid:
-                temporary_grid.remove(letter)
+            if letter.upper() in temporary_grid:
+                temporary_grid.remove(letter.upper())
             else:
                 return False
         return Game.__is_dict_word(word)
+
+    @staticmethod
+    def return_score(word):
+        return len(word)
 
     @staticmethod
     def __is_dict_word(word):

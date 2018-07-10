@@ -9,6 +9,9 @@
   <body>
     <h1>Longest Word</h1>
     <div>
+      Global score: <strong>{{ score }}</strong>.
+    </div>
+    <div>
       {% for letter in grid %}
         <span class="letter">{{ letter }}</span>
       {% endfor %}
