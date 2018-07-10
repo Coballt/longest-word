@@ -17,3 +17,4 @@ allow_prereleases = true
 [packages]
 requests = "*"
 flask = "*"
+gunicorn = "*"
