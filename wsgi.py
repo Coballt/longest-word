@@ -1,21 +1,22 @@
 # wsgi.py
+# pylint: disable=missing-docstring
 from flask import Flask, render_template, request, session
 from flask_session import Session
 from game import Game
 
-app = Flask(__name__)
-SESSION_TYPE='filesystem'
-app.config.from_object(__name__)
-Session(app)
+APP = Flask(__name__)
+SESSION_TYPE = 'filesystem'
+APP.config.from_object(__name__)
+Session(APP)
 
-@app.route('/')
+@APP.route('/')
 def home():
     game = Game()
     if 'score' not in session:
         session['score'] = 0
     return render_template('home.html', grid=game.grid, score=session['score'])
 
-@app.route('/check', methods=["POST"])
+@APP.route('/check', methods=["POST"])
 def check():
     game = Game()
     game.grid = list(request.form['grid'])
@@ -27,12 +28,7 @@ def check():
         else:
             session['score'] = 0
     return render_template('check.html',
-        is_valid=is_valid,
-        grid=game.grid,
-        word=word,
-        score=session['score'])
-
-
-@app.route('/get/')
-def get():
-    return session.get('key', 'not set')
+                           is_valid=is_valid,
+                           grid=game.grid,
+                           word=word,
+                           score=session['score'])
