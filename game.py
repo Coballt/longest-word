@@ -3,7 +3,6 @@
 # pylint: disable=too-few-public-methods
 import string
 import random
-import enchant
 
 class Game:
     def __init__(self):
@@ -20,5 +19,4 @@ class Game:
                 temporary_grid.remove(letter)
             else:
                 return False
-        eng_dict = enchant.Dict("en_US")
-        return eng_dict.check(word)
+        return True

@@ -26,8 +26,3 @@ class TestGame(unittest.TestCase):
         new_game = Game()
         new_game.grid = list('TESTTESTT')
         self.assertFalse(new_game.is_valid(''))
-
-    def test_non_english_invalid(self):
-        new_game = Game()
-        new_game.grid = list('TESTTESTT')
-        self.assertFalse(new_game.is_valid('TESTT'))
